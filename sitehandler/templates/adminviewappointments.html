@@ -6,13 +6,13 @@
     {% load static %}
 </head>
 
-<body style="background-image: url(&quot;{% static 'img/star-sky.jpg' %}&quot;);">
+<body >
     {% include 'adminnav.html' %}
     <div id="wrapper">
         {% include 'admin_include.html' %}
         <div class="page-content-wrapper">
             <div class="container-fluid"><a class="btn btn-link" role="button" id="menu-toggle" href="#menu-toggle" style="color: white;"><i class="fa fa-bars"></i></a>
-                <h2 class="text-center" style="color: white;">UPCOMING APPOINTMENTS</h2>
+                <h2 class="text-center" style="color: black;">UPCOMING APPOINTMENTS</h2>
                 <div class="text-center" role="tablist" id="accordion-1">
                     {% for i in upcomming_appointments %}
                     <ul class = "collapsible popout text-center" data-collapsible = "accordion">
@@ -48,13 +48,13 @@
                     </ul>
                     {% endfor %}
                 </div>
-                <h2 class="text-center" style="color: white;">PREVIOUS APPIONTMENTS</h2>
+                <h2 class="text-center" style="color: black;">PREVIOUS APPIONTMENTS</h2>
                 <div class="text-center" role="tablist" id="accordion-2">
                     {% for j in previous_appointments %}
                     <ul class = "collapsible popout text-center" data-collapsible = "accordion">
                         <li class="card">
                             <div class = "card-header collapsible-header">
-                                <h5 style="color:blue;"><a><i class="fa fa-calendar-check-o"></i>  {{ j.patientname }} appointment with {{ j.doctorname }} on {{j.appointmentdate}}</a></h5>
+                                <h5 style="color:black;"><a><i class="fa fa-calendar-check-o"></i>  {{ j.patientname }} appointment with {{ j.doctorname }} on {{j.appointmentdate}}</a></h5>
                             </div>
                             <div class = "card-body collapsible-body">
                                 <table align="center" class="card-text" style="font-size: 19px;">

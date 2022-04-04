@@ -5,14 +5,14 @@
 
 {% ifequal error "no" %}
 <script type="text/javascript">
-	alert('Logged In Sucessfully..........')
+	alert('Logged In Successfully...')
 	window.location = ('{% url 'adminhome' %}')
 </script>
 {% endifequal%}
 
 {% ifequal error "yes" %}
 <script type="text/javascript">
-	alert('Invalid Credentials..........')
+	alert('Invalid Credentials...')
 </script>
 {% endifequal%}
 

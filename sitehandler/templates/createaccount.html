@@ -102,7 +102,7 @@
 <div class="scroll-top-wrapper"><span class="scroll-top-inner"><i class="fa fa-arrow-circle-up"></i></span></div>
 {% ifequal error "no" %}
 <script type="text/javascript">
-    alert('Patient saved Sucessfully..........')
+    alert('Patient saved sucessfully.....')
     window.location = ('{% url 'loginpage' %}')
 </script>
 {% endifequal%}
@@ -110,7 +110,7 @@
 {% ifequal error "yes" %}
 <script type="text/javascript">
     /*alert('{{e}}')*/
-    alert('Email already exists....')
+    alert('Email already exist.....')
 </script>
 {% endifequal%}
 {% endblock %}

@@ -4,13 +4,24 @@ from .models import *
 from django.contrib.auth import authenticate,logout,login
 from django.utils import timezone
 
-# Create your views here.
+"""for creating python function that takes web request and response.
+"""
 
 def homepage(request):
 	return render(request,'index.html')
 
 def aboutpage(request):
 	return render(request,'about.html')
+
+def contact(request):
+	return render(request,'contact.html')
+
+def viewdoctor(request):
+	doc = Doctor.objects.all()
+	d = {'doc': doc}
+	return render(request,'viewdoctor.html', d)
+
+	#return render(request,'adminviewDoctors.html',d)
 
 def Login_admin(request):
 	error = ""
@@ -143,8 +154,24 @@ def admin_delete_doctor(request,pid,email):
 	users.delete()
 	return redirect('adminviewDoctor')
 
-def patient_delete_appointment(request,pid):
+def adminviewPatient(request):
 	if not request.user.is_active:
+		return redirect('login_admin')
+	pat = Patient.objects.all()
+	d = { 'pat' : pat }
+	return render(request,'adminviewPatient.html',d)
+
+def admin_delete_patient(request,pid,email):
+	if not request.user.is_active:
+		return redirect('login_admin')
+	patient = Patient.objects.get(id=pid)
+	patient.delete()
+	users = User.objects.filter(username=email)
+	users.delete()
+	return redirect('adminviewPatient')
+
+def patient_delete_appointment(request,pid):
+	if not request.user.is_staff:
 		return redirect('loginpage')
 	appointment = Appointment.objects.get(id=pid)
 	appointment.delete()
@@ -305,9 +332,10 @@ def viewappointments(request):
 			#print(pname)
 			#p = {"idvalue":idvalue,"pname":pname}
 			#return render(request,'doctoraddprescription.html',p)
-		upcomming_appointments = Appointment.objects.filter(doctoremail=request.user,appointmentdate__gte=timezone.now(),status=True).order_by('appointmentdate')
+		upcomming_appointments = Appointment.objects.filter(appointmentdate__gte=timezone.now(),status=True).order_by('appointmentdate')
 		#print("Upcomming Appointment",upcomming_appointments)
-		previous_appointments = Appointment.objects.filter(doctoremail=request.user,appointmentdate__lt=timezone.now()).order_by('-appointmentdate') | Appointment.objects.filter(doctoremail=requsest.user,status=False).order_by('-appointmentdate')
+		previous_appointments = Appointment.objects.filter(doctoremail=request.user,appointmentdate__lt=timezone.now()).order_by('-appointmentdate') | Appointment.objects.filter(status=False).order_by('-appointmentdate')
+		#doctoremail=requsest.user,
 		#print("Previous Appointment",previous_appointments)
 		d = { "upcomming_appointments" : upcomming_appointments, "previous_appointments" : previous_appointments }
 		return render(request,'doctorviewappointment.html',d)
