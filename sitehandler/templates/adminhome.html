@@ -9,8 +9,62 @@
     <div id="wrapper">
         {% include 'admin_include.html' %}
         <div class="page-content-wrapper">
-            <div class="container-fluid"><a class="btn btn-link" role="button" id="menu-toggle" href="#menu-toggle"><i class="fa fa-bars" style="color: white;"></i></a>
-                <h1 class="text-center" style="color: white;">You are successfully logged in...{{ user.username }}</h1>
+            <div class="container-fluid"><a class="btn btn-link" role="button" id="menu-toggle" href="#menu-toggle"><i class="fa fa-bars" style="color: black;"></i></a>
+                <h3 class="text-center" style="color: black;">You are successfully logged in...{{ user.username }}</h3>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <div class="col-md">
+                        <div class="card text-center text-white  mb-3" id="total-patient">
+                            <div class="card-header" style="background-color: #007bff">
+                                <h5 class="card-title">Total Patient</h5>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title" style="color: black">{{ totalpatients }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="col-md">
+                        <div class="card text-center text-white  mb-3" id="total-appointment">
+                            <div class="card-header" style="background-color: #007bff">
+                                <h5 class="card-title">Total Doctor</h5>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title" style="color: black">{{ totaldoctors }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="col-md">
+                        <div class="card text-center text-white  mb-3" id="total-appointment">
+                            <div class="card-header" style="background-color: #007bff">
+                                <h5 class="card-title">Total Receptionist</h5>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title" style="color: black">{{ totalreceptionists }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col-md">
+                        <div class="card text-center text-white  mb-3" id="total-appointment">
+                            <div class="card-header" style="background-color: #007bff">
+                                <h5 class="card-title">Total Appointment</h5>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title" style="color: black">{{ totalappointments }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

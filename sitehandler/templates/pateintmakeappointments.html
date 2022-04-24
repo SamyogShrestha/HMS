@@ -4,6 +4,7 @@
 <head>
     {% include 'include.html' %}
     {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kwBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="ananymous">
 </head>
 
 <body>
@@ -24,7 +25,7 @@
                                 <div class="col-sm-6 input-column">
                                     <select class="form-control" name="doctoremail">
                                             {% for d in alldoctors %}
-                                            <option value="{{d.email}}">{{d.name}}----->{{d.specialization}}</option>
+                                            <option value="{{d.email}}">{{d.name}} ({{d.specialization}})</option>
                                             {% endfor %}
                                     </select>
                                 </div>

@@ -19,39 +19,38 @@
     {% include 'navbar.html' %}
     <div>
         <div class="container-fluid"></a>
-                <h2 class="text-center">ALL DOCTORS</h2><br>
-                <section id="team" class="pb-5">
-                    <div class="container">
-                       <table class="table" id="example"><!--table-hover-->
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Gender</th>
-                                    <th>Phone Number</th>
-                                    <th>Date of Birth</th>
-                                    <th>Specialization</th>
-                                    <th>Address</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for i in doc %}
-                                <tr style="color: black;">
-                                    <td>{{ i.name }}</td>
-                                    <td>{{ i.email }}</td>
-                                    <td>{{ i.gender }}</td>
-                                    <td>{{ i.phonenumber }}</td>
-                                    <td>{{ i.birthdate }}</td>
-                                    <td>{{ i.specialization }}</td>
-                                    <td>{{ i.address }}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-
-                        </table>
-                    </div>
-                </section>
-            </div>
+            <h2 class="text-center">ALL DOCTORS</h2><br>
+            <section id="team" class="pb-5">
+                <div class="container">
+                    <table class="table" id="example"><!--table-hover-->
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Phone Number</th>
+                            <th>Date of Birth</th>
+                            <th>Specialization</th>
+                            <th>Address</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in doc %}
+                            <tr style="color: black;">
+                                <td>{{ i.name }}</td>
+                                <td>{{ i.email }}</td>
+                                <td>{{ i.gender }}</td>
+                                <td>{{ i.phonenumber }}</td>
+                                <td>{{ i.birthdate }}</td>
+                                <td>{{ i.specialization }}</td>
+                                <td>{{ i.address }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
     </div>
     <div class="scroll-top-wrapper"><span class="scroll-top-inner"><i class="fa fa-arrow-circle-up"></i></span></div>
 

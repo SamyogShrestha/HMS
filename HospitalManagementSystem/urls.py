@@ -41,7 +41,7 @@ urlpatterns = [
     path('profile/',profile,name='profile'),
     path('makeappointments/',MakeAppointments,name='makeappointments'),
     path('viewappointments/',viewappointments,name='viewappointments'),
-    path('PatientDeleteAppointment<int:pid>',patient_delete_appointment,name='patient_delete_appointment'),
+    path('PatientDeleteAppointment<int:pk>',patient_delete_appointment,name='patient_delete_appointment'),
     path('logout/',Logout,name='logout'),
 ]
 

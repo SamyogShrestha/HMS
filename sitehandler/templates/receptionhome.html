@@ -15,7 +15,40 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div>
-                            <h1 class="text-center">You are sucessfully logged in..{{ user.first_name }}</h1>
+                            <h3 class="text-center">You are successfully logged in {{ user.first_name }}</h3>
+                        </div>
+                        <div class="page-content-wrapper">
+                            <h2 class="text-center">ALL PATIENTS</h2>
+                            <section id="team" class="pb-5">
+                                <div class="container">
+                                    <table class="table" id="example"><!--table-hover-->
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Gender</th>
+                                                <th>Phone Number</th>
+                                                <th>Address</th>
+                                                <th>Date of Birth</th>
+                                                <th>Blood Group</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for p in pat %}
+                                            <tr style="color: black;">
+                                                <td>{{ p.name }}</td>
+                                                <td>{{ p.email }}</td>
+                                                <td>{{ p.gender }}</td>
+                                                <td>{{ p.phonenumber }}</td>
+                                                <td>{{ p.address }}</td>
+                                                <td>{{ p.birthdate }}</td>
+                                                <td>{{ p.bloodgroup }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
                         </div>
                     </div>
                 </div>
